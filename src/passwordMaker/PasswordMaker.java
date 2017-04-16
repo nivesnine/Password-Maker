@@ -50,8 +50,6 @@ public class PasswordMaker extends JFrame {
 		Container pane = getContentPane();
 		pane.setLayout(new GridLayout(6, 6));
 		
-		//Add things to the pane in the order you
-		//want them to appear (left to right, top to bottom)
 		pane.add(bdayLabel);
 		pane.add(bdayTextField);
 		pane.add(websiteLabel);
@@ -107,21 +105,20 @@ public class PasswordMaker extends JFrame {
 			
 			passwordTextField.setText(password);
 		}
-	}
+	} // End Private Class CalculateButtonHandler
 	
-	public class ExitButtonHandler implements ActionListener
-	{
-		public void actionPerformed(ActionEvent e)
-		{
+	private class ExitButtonHandler implements ActionListener {
+		
+		public void actionPerformed(ActionEvent e) {
 			System.exit(0);
 		}
-	}
+		
+	} // End Private Class ExitButtonHandler
 	
-	public static void main(String[] args)
-	{
+	public static void main(String[] args) {
 		@SuppressWarnings("unused")
 		PasswordMaker passwordObj = new PasswordMaker();
-	}
+	} 
 	
-}
+} // End Class PasswordMaker
 
