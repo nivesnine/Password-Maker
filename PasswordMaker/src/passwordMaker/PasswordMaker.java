@@ -1,3 +1,5 @@
+package passwordMaker;
+
 import java.awt.*;
 
 import javax.swing.*;
@@ -13,26 +15,26 @@ public class PasswordMaker extends JFrame {
 	private static final int WIDTH             = 400;
 	private static final int HEIGHT            = 300;
 	
-	private JLabel bdayL, websiteL, lengthL;
-	private JTextField bdayTF, websiteTF, lengthTF, passwordTF;
-	private JButton createB, exitB;
+	private JLabel bdayLabel, websiteLabel, lengthLabel;
+	private JTextField bdayTextField, websiteTextField, lengthTextField, passwordTextField;
+	private JButton createButton, exitButton;
 	
 	//Button handlers:
-	private CalculateButtonHandler cbHandler;
-	private ExitButtonHandler ebHandler;
+	private CalculateButtonHandler createButtonHandler;
+	private ExitButtonHandler exitButtonHandler;
 	
-	public passwordMaker() {
+	public PasswordMaker() {
 	bdayLabel    = new JLabel("Your Bday(MMDDYY): ", SwingConstants.RIGHT);
 	websiteLabel = new JLabel("Website: ", SwingConstants.RIGHT);
 	lengthLabel  = new JLabel("Password length: ", SwingConstants.RIGHT);
 		
 		
-		bdayTextFeild     = new JTextField(10);
-		websiteTextFeild  = new JTextField(10);
-		lengthTextFeild   = new JTextField(10);
-		passwordTextFeild = new JTextField(30);
+		bdayTextField     = new JTextField(10);
+		websiteTextField  = new JTextField(10);
+		lengthTextField   = new JTextField(10);
+		passwordTextField = new JTextField(30);
 		
-		//Spcify handlers for each button and 
+		//Specify handlers for each button and 
 		//add (register) ActionListeners to each button.
 		createButton        = new JButton("Create");
 		createButtonHandler = new CalculateButtonHandler();
@@ -51,14 +53,14 @@ public class PasswordMaker extends JFrame {
 		//Add things to the pane in the order you
 		//want them to appear (left to right, top to bottom)
 		pane.add(bdayLabel);
-		pane.add(bdayTextFeild);
+		pane.add(bdayTextField);
 		pane.add(websiteLabel);
-		pane.add(websiteTextFeild);
+		pane.add(websiteTextField);
 		pane.add(lengthLabel);
-		pane.add(lengthTextFeild);
+		pane.add(lengthTextField);
 		pane.add(createButton);
 		pane.add(exitButton);
-		pane.add(passwordTextFeild);
+		pane.add(passwordTextField);
 		
 		setSize(WIDTH, HEIGHT);
 		setVisible(true);
@@ -69,9 +71,9 @@ public class PasswordMaker extends JFrame {
 		
 		public void actionPerformed(ActionEvent e) {
 			
-			Integer bday   = Integer.valueOf(bdayTextFeild.getText()); 
-			String website = websiteTextFeild.getText();
-			Integer length = Integer.valueOf(lengthTextFeild.getText());
+			Integer bday   = Integer.valueOf(bdayTextField.getText()); 
+			String website = websiteTextField.getText();
+			Integer length = Integer.valueOf(lengthTextField.getText());
 			
 			String password = "";
 			
@@ -103,7 +105,7 @@ public class PasswordMaker extends JFrame {
 				password = password + letterset.get(letter);
 			}
 			
-			passwordTF.setText(password);
+			passwordTextField.setText(password);
 		}
 	}
 	
@@ -118,7 +120,8 @@ public class PasswordMaker extends JFrame {
 	public static void main(String[] args)
 	{
 		@SuppressWarnings("unused")
-		passwordMaker passwordObj = new passwordMaker();
+		PasswordMaker passwordObj = new PasswordMaker();
 	}
 	
 }
+
